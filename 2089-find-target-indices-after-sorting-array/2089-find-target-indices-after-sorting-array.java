@@ -1,7 +1,18 @@
 class Solution {
     public List<Integer> targetIndices(int[] nums, int target) {
-        int left = (int) Arrays.stream(nums).filter(x -> x < target).count(); 
-        int right = (int) Arrays.stream(nums).filter(x -> x <= target).count();
-        return IntStream.range(left, right).boxed().toList();
+        int cnt1 = 0;
+        int cnt2 = 0;
+        for (int num : nums) {
+            if (num < target) {
+                cnt1++;
+            } else if (num == target) {
+                cnt2++;
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = cnt1; i < cnt1 + cnt2; i++) {
+            res.add(i);
+        }
+        return res;
     }
 }
