@@ -10,8 +10,6 @@ class Solution {
                 changes ++;
             }
         }
-
         return changes;
-        
     }
 }
